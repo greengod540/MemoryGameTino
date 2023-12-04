@@ -13,12 +13,17 @@ World::~World()
 void World::init()
 {
     m_presenter.init();
+
+    m_board.init();
 }
 
 void World::run()
 {
     m_presenter.draw();
     m_inputManager.handleInput();
+
+    m_board.update();
+    m_board.draw();
 }
 
 void World::destroy()
@@ -27,6 +32,8 @@ void World::destroy()
     SDL_DestroyRenderer(m_presenter.m_mainRenderer);
 
     m_inputManager.m_keyboardState = NULL;
+
+    m_board.destroy();
 }
 
 bool World::isRunning()

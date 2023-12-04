@@ -1,0 +1,2 @@
+BackgoundImg: background.bmp
+PlayerConfig: player.txt

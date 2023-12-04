@@ -2,6 +2,7 @@
 
 #include "Presenter.h"
 #include "InputManager.h"
+#include "Board.h"
 
 class World
 {
@@ -11,6 +12,7 @@ public:
 
 	Presenter m_presenter;
 	InputManager m_inputManager;
+	Board m_board;
 
 	void init();
 	void run(); //Update and Draw
