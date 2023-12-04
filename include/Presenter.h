@@ -23,13 +23,10 @@ private:
 	void improveRenderer();
 };
 
-SDL_Texture* loadTexture(string path)
-{
-	return LoadTexture(path, Presenter::m_mainRenderer);
-}
-
 template <typename Params>
 void drawObject(Params& value)
 {
 	Presenter::drawObject(value);
 }
+
+SDL_Texture* loadTexture(string path);

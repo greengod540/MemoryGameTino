@@ -25,48 +25,55 @@ struct int2
 		y = b.y;
 	}
 
-	template <typename Params>
-	void operator*=(Params value)
+	void operator*=(int2 a)
 	{
-		x *= value;
-		y *= value;
+		x *= a.x;
+		y *= a.y;
 	}
 
-	template <typename Params>
-	void operator/=(Params value)
+	void operator/=(int2 a)
 	{
-		x /= value;
-		y /= value;
+		x /= a.x;
+		y /= a.y;
 	}
 
-	template <typename Params>
-	int2 operator*(Params value)
+	int2 operator*(int2 a)
 	{
-		x *= value;
-		y *= value;
+		x *= a.x;
+		y *= a.y;
 
 		return *this; //Returns instance of the current class (After the modifications)
 	}
 
-	template <typename Params>
-	int2 operator/(Params value)
+	int2 operator/(int2 a)
 	{
-		x /= value;
-		y /= value;
+		x /= a.x;
+		y /= a.y;
 
 		return *this;
 	}
 
-	template <typename Params>
-	bool operator!=(Params value)
+	bool operator!=(int2 a)
 	{
-		if (x == value && y == value)
+		if (x == a.x && y == a.y)
 		{
 			return false;
 		}
 		else
 		{
 			return true;
+		}
+	}
+
+	bool operator==(int2 a)
+	{
+		if (x == a.x && y == a.y)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 };

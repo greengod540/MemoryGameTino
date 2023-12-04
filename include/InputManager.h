@@ -23,25 +23,8 @@ private:
 	int2 m_mouseMultiply;
 
 	static bool m_mouseIsPressed;
-	static bool m_mouseIsDoublePressed;
 };
 
-bool isAnyKeyPressed()
-{
-	int numOfKeys = 322;
+bool isAnyKeyPressed();
 
-	for (int i = 0; i < numOfKeys; i++)
-	{
-		if (InputManager::m_keyboardState[i])
-		{
-			return true;
-		}
-	}
-
-	return false;
-}
-
-bool isKeyPressed(SDL_Scancode code)
-{
-	return InputManager::m_keyboardState[code];
-}
+bool isKeyPressed(SDL_Scancode code);

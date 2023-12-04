@@ -70,3 +70,8 @@ void Presenter::improveRenderer()
 	SDL_RenderSetLogicalSize(m_mainRenderer, m_SCREEN_WIDTH, m_SCREEN_HEIGHT);
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 }
+
+SDL_Texture* loadTexture(string path)
+{
+	return LoadTexture(path, Presenter::m_mainRenderer);
+}
