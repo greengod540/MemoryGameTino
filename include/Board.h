@@ -20,4 +20,6 @@ private:
 	void movePlayer();
 
 	SDL_Texture* m_background;
+
+	SDL_Scancode m_w, m_a, m_s, m_d;
 };
