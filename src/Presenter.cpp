@@ -39,12 +39,12 @@ void Presenter::drawObject(SDL_Texture* texture)
 
 void Presenter::drawObject(Drawable& drawable)
 {
-	SDL_RenderCopy(m_mainRenderer, drawable.texture, &drawable.rect, NULL);
+	SDL_RenderCopy(m_mainRenderer, drawable.texture, NULL, &drawable.rect);
 }
 
-void Presenter::drawObject(DrawableDstRect& drawableDstRect)
+void Presenter::drawObject(DrawableSrcRect& drawableSrcRect)
 {
-	SDL_RenderCopy(m_mainRenderer, drawableDstRect.texture, &drawableDstRect.rect, &drawableDstRect.dstRect);
+	SDL_RenderCopy(m_mainRenderer, drawableSrcRect.texture, &drawableSrcRect.rect, &drawableSrcRect.srcRect);
 }
 
 void Presenter::improveRenderer()

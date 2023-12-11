@@ -82,10 +82,10 @@ struct int2
 struct Drawable 
 {
 	SDL_Texture* texture;
-	SDL_Rect rect; //srcRect;
+	SDL_Rect rect; //dstRect;
 };
 
-struct DrawableDstRect : Drawable
+struct DrawableSrcRect : Drawable
 {
-	SDL_Rect dstRect;
+	SDL_Rect srcRect;
 };
