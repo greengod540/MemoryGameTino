@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Engine.h"
+#include "Player.h"
 
 class Board
 {
@@ -14,12 +15,8 @@ public:
 	void destroy();
 
 private:
-	Drawable m_player;
-
-	void initPlayer(string configFile);
-	void movePlayer();
-
 	SDL_Texture* m_background;
-
-	SDL_Scancode m_w, m_a, m_s, m_d;
+	
+	Player m_player1;
+	Player m_player2;
 };

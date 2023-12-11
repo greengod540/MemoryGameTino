@@ -1,2 +1,2 @@
 BackgoundImg: background.bmp
-PlayerConfig: player.txt
+PlayersConfig: player1.txt player2.txt

@@ -18,79 +18,39 @@ void Board::init()
 
 	fstream stream;
 
-	string backgorundImg, playerConfigFile, tmp;
+	string backgorundImg, player1ConfigFile, player2ConfigFile, tmp;
 
 	stream.open(CONFIG_FOLDER + configFile);
 
     stream >> tmp >> backgorundImg;
-	stream >> tmp >> playerConfigFile;
+	stream >> tmp >> player1ConfigFile >> player2ConfigFile;
 
 	stream.close();
 
-	initPlayer(playerConfigFile);
-
 	m_background = loadTexture(backgorundImg);
+
+	m_player1.init(player1ConfigFile);
+	m_player2.init(player2ConfigFile);
 }
 
 void Board::update()
 {
-	movePlayer();
+	m_player1.update();
+	m_player2.update();
 }
 
 void Board::draw()
 {
 	drawObject(m_background);
 
-	drawObject(m_player);
+	m_player1.draw();
+	m_player2.draw();
 }
 
 void Board::destroy()
 {
 	SDL_DestroyTexture(m_background);
-	SDL_DestroyTexture(m_player.texture);
-}
 
-void Board::initPlayer(string configFile)
-{
-	string tmp, playerImg;
-
-	int w, s, a, d;
-
-	fstream stream;
-
-	stream.open(CONFIG_FOLDER + configFile);
-
-	stream >> tmp >> playerImg;
-	stream >> tmp >> m_player.rect.x >> m_player.rect.y >> m_player.rect.w >> m_player.rect.h;
-	stream >> tmp >> w >> a >> s >> d;
-
-	stream.close();
-
-	m_player.texture = loadTexture(playerImg);
-
-	//Converts the int to SDL_Scancode
-	m_w = (SDL_Scancode)w;
-	m_a = (SDL_Scancode)a;
-	m_s = (SDL_Scancode)s;
-	m_d = (SDL_Scancode)d;
-}
-
-void Board::movePlayer()
-{
-	if (isKeyPressed(m_w))
-	{
-		m_player.rect.y -= 5;
-	}
-	if (isKeyPressed(m_a))
-	{
-		m_player.rect.x -= 5;
-	}
-	if (isKeyPressed(m_s))
-	{
-		m_player.rect.y += 5;
-	}
-	if (isKeyPressed(m_d))
-	{
-		m_player.rect.x += 5;
-	}
+	m_player1.destroy();
+	m_player2.destroy();
 }

@@ -23,6 +23,7 @@
     <ClInclude Include="..\include\defines.h" />
     <ClInclude Include="..\include\Engine.h" />
     <ClInclude Include="..\include\InputManager.h" />
+    <ClInclude Include="..\include\Player.h" />
     <ClInclude Include="..\include\Presenter.h" />
     <ClInclude Include="..\include\World.h" />
   </ItemGroup>
@@ -31,6 +32,7 @@
     <ClCompile Include="..\src\Engine.cpp" />
     <ClCompile Include="..\src\InputManager.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Presenter.cpp" />
     <ClCompile Include="..\src\World.cpp" />
   </ItemGroup>
