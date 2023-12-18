@@ -14,8 +14,8 @@ public:
 	void move();
 	void destroy();
 
-private:
 	Drawable m_player;
+private:
 
 	SDL_Scancode m_up, m_left, m_down, m_right;
 

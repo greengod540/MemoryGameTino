@@ -1,4 +1,7 @@
 #include "Presenter.h"
+#include "World.h"
+
+extern World world;
 
 SDL_Window* Presenter::m_mainWindow = nullptr;
 SDL_Renderer* Presenter::m_mainRenderer = nullptr;
@@ -60,7 +63,7 @@ void Presenter::improveRenderer()
 	mouseMultiply.x = m_SCREEN_WIDTH / desktopWidth;
 	mouseMultiply.y = m_SCREEN_HEIGHT / desktopHeight;
 
-	//For next time call setMouseMultiply
+	world.m_inputManager.setMouseMultiply(mouseMultiply);
 
 	if (SDL_SetWindowFullscreen(m_mainWindow, SDL_WINDOW_FULLSCREEN_DESKTOP) < 0)
 	{

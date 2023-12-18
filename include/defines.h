@@ -8,6 +8,8 @@ using namespace std;
 
 static string IMG_FOLDER = "img\\";
 static string CONFIG_FOLDER = "config\\";
+static string SOUND_FOLDER = "sound\\";
+static string CARD_FOLDER = "card\\";
 
 struct int2
 {
@@ -88,4 +90,10 @@ struct Drawable
 struct DrawableSrcRect : Drawable
 {
 	SDL_Rect srcRect;
+};
+
+enum SOUND 
+{
+	BACKGORUND_MUSIC,
+	PLAYER_COLLISION,
 };

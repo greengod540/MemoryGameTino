@@ -1,2 +1,3 @@
 BackgoundImg: background.bmp
 PlayersConfig: player1.txt player2.txt
+Card1Config: card1.txt

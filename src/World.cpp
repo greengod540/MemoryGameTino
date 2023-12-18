@@ -15,6 +15,8 @@ void World::init()
     m_presenter.init();
 
     m_board.init();
+
+    m_soundManager.init();
 }
 
 void World::run()
@@ -34,6 +36,8 @@ void World::destroy()
     m_inputManager.m_keyboardState = NULL;
 
     m_board.destroy();
+
+    m_soundManager.destroy();
 }
 
 bool World::isRunning()
