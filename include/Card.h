@@ -9,7 +9,7 @@ public:
 	~Card();
 
 	void init(string configFile);
-	void chancheTexture();
+	void changeTexture();
 	void draw();
 	void destroy();
 

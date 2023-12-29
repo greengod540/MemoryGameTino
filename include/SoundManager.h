@@ -14,8 +14,10 @@ public:
 	static void playSound(SOUND sound);
 	void destroy();
 
-private:
 	static Mix_Chunk* m_backgroundMusic;
 
 	static Mix_Chunk* m_playerColl;
+	static Mix_Chunk* cardsFlip;
+	static Mix_Chunk* cardsSame;
+	static Mix_Chunk* cardsNotSame;
 };

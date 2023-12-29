@@ -10,8 +10,7 @@ int Presenter::m_SCREEN_HEIGHT = 0;
 
 void Presenter::init()
 {
-	m_SCREEN_WIDTH = 1920;
-	m_SCREEN_HEIGHT = 1080;
+
 
 	SDL_Init(SDL_INIT_EVERYTHING);
 	
@@ -54,6 +53,8 @@ void Presenter::improveRenderer()
 {
 	SDL_DisplayMode DM;
 	SDL_GetCurrentDisplayMode(0, &DM);
+	m_SCREEN_HEIGHT = DM.h;
+	m_SCREEN_WIDTH = DM.w;
 
 	auto desktopWidth = DM.w;
 	auto desktopHeight = DM.h;

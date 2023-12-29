@@ -2,6 +2,9 @@
 
 Mix_Chunk* SoundManager::m_backgroundMusic = nullptr;
 Mix_Chunk* SoundManager::m_playerColl = nullptr;
+Mix_Chunk* SoundManager::cardsFlip = nullptr;
+Mix_Chunk* SoundManager::cardsNotSame = nullptr;
+Mix_Chunk* SoundManager::cardsSame = nullptr;
 
 SoundManager::SoundManager()
 {
@@ -17,12 +20,15 @@ void SoundManager::init()
 {
 	fstream stream;
 
-	string tmp, backgroundMusic, playerColl;
+	string tmp, backgroundMusic, playerColl, cardS, cardsNS, cardsFl;
 
 	stream.open(CONFIG_FOLDER + "soundManager.txt");
 
 	stream >> tmp >> backgroundMusic;
 	stream >> tmp >> playerColl;
+	stream >> tmp >> cardS;
+	stream >> tmp >> cardsNS;
+	stream >> tmp >> cardsFl;
 
 	stream.close();
 
@@ -34,13 +40,16 @@ void SoundManager::init()
 
 	m_backgroundMusic = Mix_LoadWAV((SOUND_FOLDER + backgroundMusic).c_str());
 	m_playerColl = Mix_LoadWAV((SOUND_FOLDER + playerColl).c_str());
+	cardsSame = Mix_LoadWAV((SOUND_FOLDER + cardS).c_str());
+	cardsNotSame = Mix_LoadWAV((SOUND_FOLDER + cardsNS).c_str());
+	cardsFlip = Mix_LoadWAV((SOUND_FOLDER + cardsFl).c_str());
 
 	SoundManager::playSound(SOUND::BACKGORUND_MUSIC);
 }
 
 void SoundManager::playSound(SOUND sound)
 {
-	Mix_AllocateChannels(2);//Secure 2 channels for the sounds
+	Mix_AllocateChannels(4);//Secure 2 channels for the sounds
 
 	switch (sound)
 	{
@@ -51,6 +60,22 @@ void SoundManager::playSound(SOUND sound)
 		break;
 	case SOUND::PLAYER_COLLISION:
 		Mix_PlayChannel(1, m_playerColl, 0);
+
+		Mix_Volume(1, 10);
+		break;
+	case SOUND::CARDS_SAME:
+		Mix_PlayChannel(2, cardsSame, 0);
+
+		Mix_Volume(1, 10);
+		break;
+
+	case SOUND::CARD_FLIP:
+		Mix_PlayChannel(2, cardsFlip, 0);
+
+		Mix_Volume(1, 10);
+		break;
+	case SOUND::CARDS_NOT_SAME:
+		Mix_PlayChannel(2, cardsNotSame, 0);
 
 		Mix_Volume(1, 10);
 		break;
